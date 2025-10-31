@@ -1,0 +1,28 @@
+.not-found {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #333;
+
+  h1 {
+    font-size: 3rem;
+    color: goldenrod;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  button {
+    background-color: goldenrod;
+    color: white;
+    font-weight: 500;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+
+    &:hover {
+      background-color: #c9a200;
+    }
+  }
+}

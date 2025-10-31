@@ -1,0 +1,42 @@
+<ng-container *ngIf="loading; else loadedTpl">
+  <div class="loading-container">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+</ng-container>
+
+<ng-template #loadedTpl>
+  <ng-container *ngIf="!error && laureate; else errorTpl">
+    <div class="detail-container">
+      <h2>{{ laureate?.fullName?.en || laureate?.orgName?.en }}</h2>
+
+      <p><strong>Born:</strong> {{ laureate?.birth?.date || 'N/A' }}</p>
+
+      <p *ngIf="laureate?.birth?.place">
+        <strong>Birthplace:</strong>
+        {{ laureate?.birth?.place?.city?.en }},
+        {{ laureate?.birth?.place?.country?.en }}
+      </p>
+
+      <p *ngIf="laureate?.gender">
+        <strong>Gender:</strong> {{ laureate?.gender }}
+      </p>
+
+      <h3>Nobel Prizes</h3>
+      <ul>
+        <li *ngFor="let prize of laureate?.nobelPrizes">
+          <strong>{{ prize?.categoryFullName?.en }}</strong>
+          ({{ prize?.awardYear }})
+          <div *ngIf="prize?.motivation?.en">
+            <em>{{ prize?.motivation?.en }}</em>
+          </div>
+        </li>
+      </ul>
+
+      <a routerLink="/" class="back-btn">← Back to list</a>
+    </div>
+  </ng-container>
+
+  <ng-template #errorTpl>
+    <p class="error">{{ error }}</p>
+  </ng-template>
+</ng-template>

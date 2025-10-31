@@ -1,0 +1,31 @@
+<nav class="navbar">
+  <div class="nav-left">
+    <h1 class="app-title" routerLink="/">Nobel Prize Explorer</h1>
+  </div>
+
+  <div class="nav-right">
+    <!-- First Dropdown -->
+    <div class="nav-item dropdown">
+      <span class="nav-title">Nobel Prizes & Laureates</span>
+      <div class="dropdown-content">
+        <a [routerLink]="['/prizes']" [queryParams]="{ category: '' }">
+          All Nobel Prizes
+        </a>
+        <a
+          *ngFor="let category of categories"
+          [routerLink]="['/prizes']"
+          [queryParams]="{ category: category.value }">
+          {{ category.label }}
+        </a>
+      </div>
+    </div>
+
+    <div class="nav-item dropdown">
+      <span class="nav-title">About</span>
+      <div class="dropdown-content">
+        <a routerLink="/about">About the Nobel Prize</a>
+        <a routerLink="/history">History</a>
+      </div>
+    </div>
+  </div>
+</nav>
