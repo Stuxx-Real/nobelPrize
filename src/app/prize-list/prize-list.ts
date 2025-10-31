@@ -12,7 +12,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { forkJoin, Subject, debounceTime, switchMap, takeUntil, of } from 'rxjs';
-import { LaureateDetailComponent } from '../laureate-dialog/laureate-dialog';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 
 @Component({
