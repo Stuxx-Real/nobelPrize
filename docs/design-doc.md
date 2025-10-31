@@ -21,3 +21,6 @@ Users can browse prizes by category and year, view detailed laureate information
 - Clean, minimal UI inspired by the official Nobel Prize website.
 
 ## Future Enhancements
+- to implement the alphabetical order filter for the laureate names.
+- Country based search for the prize winners.
+- Add more navbar elements related to the nobel prizes (how many of the nobel prizes are given in seach field from the starting date to till)
