@@ -1,59 +1,34 @@
-# NobelApp
+## Nobel Prize Explorer
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.0.
+A Angular application that allows users to **explore Nobel Prizes and Laureates**.  
+You can search Nobel Prizes by **year** (in range of 5 years), filter by **category**, and view **individual laureate details** — all with a modern UI built using Angular Material.
 
-## Development server
+---
 
-To start a local development server, run:
+## Features
 
+Search by Year** – Users can view Nobel Prizes for a specific year.
+Filter by Category** – Filter prizes by category (Physics, Chemistry, Peace, etc.).
+Pagination** – Shows 6 prizes per page for a clean, readable layout.
+Laureate Details** – Click on a laureate’s name to view more details.
+Angular Material UI** – Provides a greater user exp design.
+
+---
+
+## Tech
+
+- **Angular 20**
+- **Angular Material**
+- **TypeScript**
+- **SCSS**
+- **RxJS**
+- **Nobel Prize API** — [https://api.nobelprize.org/](https://api.nobelprize.org/)
+
+---
+
+## Setup Instructions
+
+### 1️Clone the repository
 ```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+git clone https://github.com/Stuxx-Real/nobelPrize.git
+cd nobelPrize
