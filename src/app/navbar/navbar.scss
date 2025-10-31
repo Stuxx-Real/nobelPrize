@@ -1,7 +1,7 @@
 .navbar {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   background-color: #ffffff;
   padding: 0.7rem 2rem;
   color: black;
@@ -13,7 +13,7 @@ z-index: 100;
 }
 
 .app-title {
-  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   cursor: pointer;
@@ -29,15 +29,15 @@ z-index: 100;
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 3rem; /* spacing between dropdowns */
-  margin-top: 1.5rem;
+  // gap: 1rem; /* spacing between dropdowns */
+  margin-left: 50rem;
 }
 
 .nav-item {
   position: relative;
   font-weight: 500;
   cursor: pointer;
-  margin-left: 0; // default for all items
+  margin-top: -2rem; // default for all items
 
   .nav-title {
     padding: 0.5rem 1rem;
@@ -51,9 +51,8 @@ z-index: 100;
 
 // Apply only to the first nav-item
 .nav-item:first-child {
-  margin-left: 40rem;
+  margin-left: 80rem;
 }
-
 
   .dropdown-content {
     display: none;

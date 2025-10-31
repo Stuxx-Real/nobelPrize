@@ -32,3 +32,14 @@ Angular Material UI** – Provides a greater user exp design.
 ```bash
 git clone https://github.com/Stuxx-Real/nobelPrize.git
 cd nobelPrize
+
+---
+
+- **Install dependencies**
+npm install -g @angular/cli
+npm install
+
+- **Run the development server**
+ng serve
+
+--- 
