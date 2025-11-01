@@ -1,6 +1,6 @@
 .not-found {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 9.5rem 2rem;
   color: #333;
 
   h1 {
@@ -16,13 +16,14 @@
 
   button {
     background-color: goldenrod;
-    color: white;
-    font-weight: 500;
+    color: black;
+    // font-weight: 500;
     padding: 0.6rem 1.5rem;
     border-radius: 6px;
 
     &:hover {
-      background-color: #c9a200;
+      background-color: #ffe062;
+      cursor: pointer;
     }
   }
 }

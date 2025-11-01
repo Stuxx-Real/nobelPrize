@@ -29,6 +29,9 @@ body {
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-medium);
+  font-family: 'Inter', Arial, sans-serif;
+  /* optionally set a base font size, line-height etc */
+  font-size: 16px;
 
   // Reset the user agent margin.
   margin: 0;
