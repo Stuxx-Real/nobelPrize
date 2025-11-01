@@ -1,7 +1,7 @@
 ## Nobel Prize Explorer
 
-A Angular application that allows users to **explore Nobel Prizes and Laureates**.  
-You can search Nobel Prizes by **year** (in range of 5 years), filter by **category**, and view **individual laureate details** — all with a modern UI built using Angular Material.
+A Angular application that allows users to explore Nobel Prizes and Laureates.  
+You can search Nobel Prizes by year (in range of 5 years), filter by category, and view individual laureate details — all with a modern UI built using Angular Material.
 
 ---
 
