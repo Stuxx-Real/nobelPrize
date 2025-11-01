@@ -10,7 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { forkJoin, Subject, debounceTime, switchMap, takeUntil, of } from 'rxjs';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 
@@ -35,8 +35,11 @@ import { RouterLink, ActivatedRoute } from '@angular/router';
   styleUrls: ['./prize-list.scss']
 })
 export class PrizeListComponent implements OnInit, OnDestroy {
+
+  // constructor(private nobel: NobelService) {
+  // }
+
   private nobel = inject(NobelService);
-  private dialog = inject(MatDialog);
   private route = inject(ActivatedRoute);
 
   @ViewChild('yearSelect') yearSelect!: MatSelect;
@@ -202,5 +205,9 @@ export class PrizeListComponent implements OnInit, OnDestroy {
     const startIndex = this.pageIndex * this.pageSize;
     const endIndex = startIndex + this.pageSize;
     this.pagedPrizes = this.prizes.slice(startIndex, endIndex);
+  }
+
+  openSelect(select: MatSelect) {
+    select.open();
   }
 }

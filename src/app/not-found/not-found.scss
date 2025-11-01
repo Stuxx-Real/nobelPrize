@@ -1,7 +1,12 @@
 .not-found {
   text-align: center;
-  padding: 9.55rem 2rem;
+  padding: 4rem 2rem;
   color: #333;
+  min-height: 55vh; // keeps it vertically centered even on larger screens
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   h1 {
     font-size: 3rem;
@@ -12,18 +17,55 @@
   p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
+    max-width: 500px;
   }
 
   button {
     background-color: goldenrod;
     color: black;
-    // font-weight: 500;
     padding: 0.6rem 1.5rem;
     border-radius: 6px;
+    font-size: 1rem;
 
     &:hover {
       background-color: #ffe062;
       cursor: pointer;
+    }
+  }
+
+  // ✅ Responsive for tablets and phones
+  @media (max-width: 768px) {
+    padding: 6rem 1.5rem;
+
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    button {
+      font-size: 0.9rem;
+      padding: 0.5rem 1.2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 5rem 1rem;
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+
+    button {
+      width: 100%;
+      max-width: 220px;
     }
   }
 }

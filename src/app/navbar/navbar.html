@@ -4,33 +4,44 @@
   </div>
 
   <div class="nav-right">
-    <!-- First Dropdown -->
-    <div class="nav-item dropdown">
-      <span class="nav-title">Nobel Prizes & Laureates</span>
+    <!-- Nobel Prizes & Laureates -->
+    <div class="nav-item dropdown" [class.open]="activeDropdown === 'prizes'">
+      <span class="nav-title" (click)="toggleDropdown('prizes')">
+        Nobel Prizes & Laureates
+      </span>
+
       <div class="dropdown-content">
-        <a routerLink="/" [queryParams]="{ category: '' }">
+        <a routerLink="/" [queryParams]="{ category: '' }" (click)="closeDropdown()">
           All Nobel Prizes
         </a>
-        <a
-          *ngFor="let category of categories"
-          [routerLink]="['/prizes']"
-          [queryParams]="{ category: category.value }">
-          {{ category.label }}
-        </a>
+
+        @for (category of categories; track category.value) {
+          <a
+            [routerLink]="['/prizes']"
+            [queryParams]="{ category: category.value }"
+            (click)="closeDropdown()">
+            {{ category.label }}
+          </a>
+        }
       </div>
     </div>
 
-    <div class="nav-item dropdown">
-      <span class="nav-title">About</span>
+    <!-- About -->
+    <div class="nav-item dropdown" [class.open]="activeDropdown === 'about'">
+      <span class="nav-title" (click)="toggleDropdown('about')">About</span>
+
       <div class="dropdown-content">
-        <a routerLink="/about">About the Nobel Prize</a>
-        <a routerLink="/history">History</a>
+        <a routerLink="/about" (click)="closeDropdown()">About the Nobel Prize</a>
+        <a routerLink="/history" (click)="closeDropdown()">History</a>
       </div>
     </div>
 
-    <div class="nav-item dropdown">
-      <span class="nav-title" routerLink="/Events">Events & Museums</span>
+    <!-- Events -->
+    <div class="nav-item dropdown" [class.open]="activeDropdown === 'events'">
+      <span class="nav-title" (click)="toggleDropdown('events')">Events & Museums</span>
+
       <div class="dropdown-content">
+        <a routerLink="/events" (click)="closeDropdown()">Upcoming Events</a>
       </div>
     </div>
   </div>

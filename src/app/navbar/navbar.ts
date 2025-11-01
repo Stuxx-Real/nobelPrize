@@ -18,4 +18,19 @@ export class NavbarComponent {
     { label: 'Peace', value: 'peace' },
     { label: 'Economic Sciences', value: 'economic-sciences' }
   ];
+  menuOpen = false;
+  activeDropdown: string | null = null;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+
+  toggleDropdown(menu: string) {
+    this.activeDropdown = this.activeDropdown === menu ? null : menu;
+  }
+
+  closeDropdown() {
+    this.activeDropdown = null;
+  }
 }

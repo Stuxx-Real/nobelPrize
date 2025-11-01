@@ -16,6 +16,7 @@ import { Footer } from './shared/footer/footer';
   `,
   styles: [`
     .main-container {
+      padding: 3rem;
     }
   `]
 })

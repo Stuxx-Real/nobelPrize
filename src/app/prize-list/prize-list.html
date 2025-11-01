@@ -2,48 +2,63 @@
   <div class="controls">
     <mat-form-field appearance="outline" class="range-field">
       <mat-label>Year range</mat-label>
-      <mat-select [(value)]="selectedRange" (selectionChange)="onRangeChange()">
-        <mat-option *ngFor="let year of yearRanges" [value]="year">{{ year.label }}</mat-option>
+      <mat-select #rangeSelect [(value)]="selectedRange" (selectionChange)="onRangeChange()">
+        @for (year of yearRanges; track year) {
+          <mat-option [value]="year">
+            {{ year.label }}
+          </mat-option>
+        }
       </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="category-field">
       <mat-label>Category</mat-label>
-      <mat-select [(value)]="selectedCategory" (selectionChange)="onCategoryChange()">
-        <mat-option *ngFor="let c of categories" [value]="c.value">{{ c.label }}</mat-option>
+      <mat-select #categorySelect="matSelect" [(value)]="selectedCategory" (selectionChange)="onCategoryChange()">
+        @for (c of categories; track c.value) {
+          <mat-option [value]="c.value">{{ c.label }}</mat-option>
+        }
       </mat-select>
     </mat-form-field>
   </div>
 
-<ng-container *ngIf="loading">
-  <div class="loading-container">
-    <mat-spinner diameter="50"></mat-spinner>
-  </div>
-</ng-container>
+  @if (loading) {
+    <div class="loading-container">
+      <mat-spinner diameter="50"></mat-spinner>
+    </div>
+  } @else {
+    @if (pagedPrizes.length > 0) {
+      <div class="prize-grid">
+        @for (prize of pagedPrizes; track prize.id) {
+          <mat-card class="prize-card">
+            <mat-card-header>
+              <mat-card-title>{{ prize.categoryFullName?.en || prize.category }}</mat-card-title>
+              <mat-card-subtitle>{{ prize.awardYear || prize.year }}</mat-card-subtitle>
+            </mat-card-header>
 
-  <div class="prize-grid" *ngIf="!loading && pagedPrizes.length">
-    <mat-card class="prize-card" *ngFor="let prize of pagedPrizes">
-      <mat-card-header>
-        <mat-card-title>{{ prize.categoryFullName?.en || prize.category }}</mat-card-title>
-        <mat-card-subtitle>{{ prize.awardYear || prize.year }}</mat-card-subtitle>
-      </mat-card-header>
+            <mat-card-content>
+              <ul>
+                @for (l of prize.laureates; track l.id) {
+                  <li>
+                    <a [routerLink]="['/laureate', l.id]" class="laur-name">
+                      {{ l.fullName?.en || l.orgName?.en }}
+                    </a>
+                    @if (l.motivation) {
+                      <span class="motivation"> — {{ l.motivation?.en || l.motivation }} </span>
+                    }
+                  </li>
+                }
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        }
+      </div>
+    } @else {
+      <div class="empty">
+        No results for selected range/category.
+      </div>
+    }
+  }
 
-      <mat-card-content>
-        <ul>
-          <li *ngFor="let l of prize.laureates">
-            <a [routerLink]="['/laureate', l.id]" class="laur-name">{{ l.fullName?.en || l.orgName?.en }}</a>
-            <span class="motivation" *ngIf="l.motivation"> — {{ l.motivation?.en || l.motivation }} </span>
-          </li>
-        </ul>
-      </mat-card-content>
-    </mat-card>
-  </div>
-
-  <div *ngIf="!loading && !pagedPrizes.length" class="empty">
-    No results for selected range/category.
-  </div>
-
-  <!-- MatPaginator -->
   <mat-paginator
     [length]="length"
     [pageSize]="pageSize"
